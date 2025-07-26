@@ -47,7 +47,8 @@ def extract_keywords_from_url(url, collected_keywords):
 
 def process_sitemap_content(content, sitemap_url, collected_keywords, collected_urls, visited_sitemaps):
     """Traite le contenu d'un sitemap, qu'il soit un index ou une liste d'URLs."""
-    soup = BeautifulSoup(content, 'xml')
+    # MODIFICATION: Utilisation de l'analyseur 'lxml' pour la robustesse
+    soup = BeautifulSoup(content, 'lxml')
 
     sitemap_tags = soup.find_all('sitemap')
     if sitemap_tags:
